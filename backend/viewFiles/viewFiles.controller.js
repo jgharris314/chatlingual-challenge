@@ -7,7 +7,7 @@ async function listFiles(req, res, next) {
 
 async function addFile(req, res, next) {
 	const response = await service.addFile(req.body.data);
-	res.json({ data: response });
+	res.status(201).json({ data: response });
 }
 
 async function transferFile(req, res, next) {
@@ -15,7 +15,7 @@ async function transferFile(req, res, next) {
 		req.body.data.currentPath,
 		req.body.data.targetPath
 	);
-	res.json({ data: response });
+	res.status(201).json({ data: response });
 }
 
 module.exports = { listFiles, addFile, transferFile };
