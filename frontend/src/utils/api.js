@@ -36,3 +36,25 @@ export async function fetchFiles(directoryPath, signal) {
 	};
 	return await fetchJson(url, options);
 }
+
+export async function addFile(filePath, signal) {
+	const url = `${API_BASE_URL}/viewFiles/addFile`;
+	const options = {
+		method: "POST",
+		headers,
+		body: JSON.stringify({ data: filePath }),
+		signal,
+	};
+	return await fetchJson(url, options);
+}
+
+export async function tranferFile(params, signal) {
+	const url = `${API_BASE_URL}/viewFiles/addFile`;
+	const options = {
+		method: "PUT",
+		headers,
+		body: JSON.stringify({ data: params }),
+		signal,
+	};
+	return await fetchJson(url, options);
+}
